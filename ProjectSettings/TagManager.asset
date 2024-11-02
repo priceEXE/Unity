@@ -3,12 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Enamy
+  - Effect
+  - UI
+  - Boom
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
@@ -40,4 +45,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1187424529
+    locked: 0
+  - name: Player
+    uniqueID: 1229425877
+    locked: 0
+  - name: Wepeon
+    uniqueID: 3480033427
+    locked: 0
+  - name: UI
+    uniqueID: 2995723555
     locked: 0
