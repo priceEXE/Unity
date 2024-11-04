@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 1132769894}
   - component: {fileID: 1132769895}
   - component: {fileID: 1132769896}
+  - component: {fileID: 1132769897}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -359,6 +360,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1132769897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1132769893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c912930c4ea43b0488f1a518127d4cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1161022832
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56aaf87b86551e40aa2d02aba89e12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
   speed: 4
   jumpforce: 5
   groundCheckDistance: 1.37
@@ -704,7 +716,9 @@ MonoBehaviour:
   dashTime: 0
   dashSpeed: 10
   dashColdTime: 1
-  stateCodeOfDash: 0
+  Damage: 0
+  AttackFrequece: 0
+  AttackRange: 0
 --- !u!70 &1631881483
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

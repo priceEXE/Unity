@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] public float health;//生命值
-
+    [Header("Move Info")]
     [SerializeField] private float speed;//移动速度
 
     [SerializeField] private float jumpforce;//跳跃力度
@@ -28,10 +27,20 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float dashColdTime;//冲刺冷却时间
     private bool isDashing = false;//是否在冲刺
+    private int stateCodeOfDash = 0;//冲刺状态机
 
-    //private bool couldDashing = true;//是否接受冲刺键输入
+    [Header("Attack Info")]
 
-    [SerializeField] private int stateCodeOfDash = 0;//冲刺状态机
+    [SerializeField] private float Damage;//攻击力
+
+    [SerializeField] private float AttackFrequece;//攻击频率
+
+    [SerializeField] private float AttackRange;//攻击范围
+
+    private bool isAttacking = false;
+
+    private int comba;//连击数
+
     
     //private int facingdirection = 1;
     private Rigidbody2D rb;
@@ -100,6 +109,11 @@ public class Player : MonoBehaviour
     private void CheckInput()//输入检测器
     {
         xInput = Input.GetAxisRaw("Horizontal");
+        if(Input.GetKeyDown(KeyCode.J))
+        {
+            isAttacking = true;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
@@ -127,7 +141,8 @@ public class Player : MonoBehaviour
         animator.SetBool("isOnGround",isonground);
         animator.SetFloat("yVelocity",rb.velocity.y);
         animator.SetBool("isDashing",isDashing);
-
+        animator.SetBool("isAttacking",isAttacking);
+        animator.SetInteger("combaCounter",comba);
     }
 
     private void Flip()//翻转方法
@@ -151,5 +166,11 @@ public class Player : MonoBehaviour
     private void OnDrawGizmos() //绘制检测线工具，在编辑器页面确定具体值
     {
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y - groundCheckDistance));
+    }
+
+    public void QuitAttacking()
+    {
+        isAttacking = false;
+        comba = 0;
     }
 }
